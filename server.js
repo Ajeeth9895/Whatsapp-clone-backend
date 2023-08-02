@@ -8,12 +8,15 @@ const Messages = require("./dbMessages");
 const app = express();
 const port = process.env.PORT || 5000;
 
+var dotenv = require("dotenv")
+dotenv.config();
+
 const pusher = new Pusher({
-  appId: "1621763",
-  key: "f0d22a2648acb2d53b94",
-  secret: "710cd046bb747dd0799e",
-  cluster: "ap2",
-  useTLS: true
+  appId: process.env.appId,
+  key: process.env.key,
+  secret: process.env.secret,
+  cluster: process.env.cluster,
+  useTLS: process.env.useTLS
 });
 
 app.use(express.json());
